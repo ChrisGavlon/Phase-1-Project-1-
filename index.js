@@ -12,30 +12,54 @@ fetch(BASE_URL)
     });
 
     function renderCryptoDropDown(crytpoObj) {
-      console.log(crytpoObj); // now we get the individual objects
+      //   console.log(crytpoObj); // now we get the individual objects
 
       // create option or div element where data will go
-    }
+      const cryptoSearchCell = document.createElement("div");
+      //   cryptoSearchDiv.classList = "cryptoSearchCells";
+      cryptoSearchCell.textContent = crytpoObj.name;
 
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
+      cryptoSearchCell.id = crytpoObj.id;
+      console.log(cryptoSearchCell.id);
 
-    function filterFunction() {
-      var input, filter, ul, li, a, i;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      div = document.getElementById("myDropdown");
-      a = div.getElementsByTagName("a");
-      for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          a[i].style.display = "";
-        } else {
-          a[i].style.display = "none";
-        }
-      }
+      cryptoSearchCell.addEventListener("click", insertToSearchbar);
+
+      //add image later
+
+      const searchCellLocation = document.querySelector("#myDropdown");
+
+      const imageSearchCell = document.createElement("img");
+      imageSearchCell.src = crytpoObj.image;
+
+      // append cryptoSearchCell to SearchCellLocation
+
+      searchCellLocation.appendChild(cryptoSearchCell);
+      cryptoSearchCell.appendChild(imageSearchCell);
     }
   });
+
+function insertToSearchbar(e) {
+  const input = document.querySelector("#myInput");
+  input.textContent = e.target.value;
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+
+function filterFunction() {
+  let input, filter, ul, li, div, i;
+
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  div = div.getElementsByTagName("div");
+
+  for (i = 0; i < div.length; i++) {
+    txtValue = div[i].textContent || div[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      div[i].style.display = "";
+    } else {
+      div[i].style.display = "none";
+    }
+  }
+}
