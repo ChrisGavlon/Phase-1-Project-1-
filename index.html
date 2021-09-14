@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="myDropdown" class="dropdown-content">
+      <input
+        type="text"
+        placeholder="Search.."
+        id="myInput"
+        onkeyup="filterFunction()"
+      />
+      <a href="#bitcoin">Bitcoin</a>
+      <a href="#ethereum">Ethereum</a>
+      <a href="#cardano">Cardano</a>
+      <a href="#binance-coin">Binance Coin</a>
+      <a href="#solana">Solana</a>
+    </div>
+  </body>
 </html>
