@@ -12,6 +12,9 @@ fetch(BASE_URL)
     cryptoArray.forEach((crypto) => {
       renderCryptoDropDown(crypto);
     });
+    // cryptoArray.forEach((crypto) => {
+    //   renderCryptoDropDown(crypto, "myInput2");
+    // });
 
     function renderCryptoDropDown(crytpoObj) {
       //   console.log(crytpoObj); // now we get the individual objects
@@ -26,8 +29,6 @@ fetch(BASE_URL)
 
       cryptoSearchCell.addEventListener("click", insertToSearchbar);
 
-      //add image later
-
       const searchCellLocation = document.querySelector("#myDropdown");
 
       const imageSearchCell = document.createElement("img");
@@ -41,8 +42,10 @@ fetch(BASE_URL)
   });
 
 function insertToSearchbar(e) {
+  debugger;
   const input = document.querySelector("#myInput");
-  input.textContent = e.target.value;
+  input.value = this.outerText;
+  debugger;
 }
 
 /* When the user clicks on the button,
