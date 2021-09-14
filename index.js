@@ -12,9 +12,9 @@ fetch(BASE_URL)
     cryptoArray.forEach((crypto) => {
       renderCryptoDropDown(crypto);
     });
-    // cryptoArray.forEach((crypto) => {
-    //   renderCryptoDropDown(crypto, "myInput2");
-    // });
+    cryptoArray.forEach((crypto) => {
+      renderCryptoDropDown2(crypto);
+    });
 
     function renderCryptoDropDown(crytpoObj) {
       //   console.log(crytpoObj); // now we get the individual objects
@@ -27,25 +27,55 @@ fetch(BASE_URL)
       cryptoSearchCell.id = crytpoObj.id;
       console.log(cryptoSearchCell.id);
 
+
       cryptoSearchCell.addEventListener("click", insertToSearchbar);
 
       const searchCellLocation = document.querySelector("#myDropdown");
 
-      const imageSearchCell = document.createElement("img");
-      imageSearchCell.src = crytpoObj.image;
+      // const imageSearchCell = document.createElement("img");
+      // imageSearchCell.src = crytpoObj.image;
 
       // append cryptoSearchCell to SearchCellLocation
 
       searchCellLocation.appendChild(cryptoSearchCell);
-      cryptoSearchCell.appendChild(imageSearchCell);
+      // cryptoSearchCell.appendChild(imageSearchCell);
     }
+
+
+function renderCryptoDropDown2(crytpoObj) {
+  //   console.log(crytpoObj); // now we get the individual objects
+
+  // create option or div element where data will go
+    const cryptoSearchCell = document.createElement("div");
+  //   cryptoSearchDiv.classList = "cryptoSearchCells";
+    cryptoSearchCell.textContent = crytpoObj.name;
+
+    cryptoSearchCell.id = crytpoObj.id;
+    console.log(cryptoSearchCell.id);
+
+
+    cryptoSearchCell.addEventListener("click", insertToSearchbar2);
+
+    const searchCellLocation = document.querySelector("#myDropdown2");
+
+    // const imageSearchCell = document.createElement("img");
+    // imageSearchCell.src = crytpoObj.image;
+
+    // append cryptoSearchCell to SearchCellLocation
+
+    searchCellLocation.appendChild(cryptoSearchCell);
+    // cryptoSearchCell.appendChild(imageSearchCell);
+  }
   });
 
-function insertToSearchbar(e) {
-  debugger;
-  const input = document.querySelector("#myInput");
+function insertToSearchbar2(e) {
+  const input = document.querySelector("#myInput2");
   input.value = this.outerText;
-  debugger;
+}
+
+function insertToSearchbar(e) {
+const input = document.querySelector("#myInput");
+input.value = this.outerText;
 }
 
 /* When the user clicks on the button,
@@ -57,6 +87,24 @@ function filterFunction() {
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
+  div = div.getElementsByTagName("div");
+
+  for (i = 0; i < div.length; i++) {
+    txtValue = div[i].textContent || div[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      div[i].style.display = "";
+    } else {
+      div[i].style.display = "none";
+    }
+  }
+}
+
+function filterFunction2() {
+  let input, filter, ul, li, div, i;
+
+  input = document.getElementById("myInput2");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown2");
   div = div.getElementsByTagName("div");
 
   for (i = 0; i < div.length; i++) {
