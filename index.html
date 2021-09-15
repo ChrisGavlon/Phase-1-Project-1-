@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="index.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+<body>
   <div id="searchbar-div">
-    <div id="myDropdown" class="dropdown-content">
+    <div id="myDropDown1" class="dropdown-content">
       <input
         type="text"
         placeholder="Search.."
-        id="myInput"
+        id="myInput1"
         class="inputClass"
-        onkeyup="filterFunction()"
+        onkeyup='filterFunction("1")'
       />
     </div>
-    <div id="myDropdown2" class="dropdown-content">
+    <div id="myDropDown2" class="dropdown-content">
       <input type="text"
       placeholder="Search.."
       id="myInput2"
       class="inputClass"
-      onkeyup="filterFunction2()"
+      onkeyup='filterFunction("2")'
       />
     </div>
+    <button class="calc-button">Click to Compare</button>
   </div>
-    </body>
-  </body>
+
+  <div class="crypto-calculator-parent-container">
+    <div class="crypto-calculator-box">
+        <div class="crypto-calculator-content-box">
+            <p class="contentbox-header">Crypto A would have the price of...</p>
+            <div class="price-container">
+                <h2 class="calculated-price">
+                    Price will go here!
+                </h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
 </html>
