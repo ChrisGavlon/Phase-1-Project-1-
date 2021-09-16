@@ -18,6 +18,7 @@ fetch(BASE_URL)
     function renderCryptoDropDown(crytpoObj, dropDownID, inputID) {
       // create option or div element where data will go
       const cryptoSearchCell = document.createElement("div");
+
       // assign a div
       cryptoSearchCell.textContent = crytpoObj.name;
 
