@@ -1,13 +1,37 @@
+* {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+:root {
+  --primary-color: 8#5DCB;
+  --secondary-color: #444444;
+}
+
+body {
+  background-color: rgb(37, 39, 77);
+}
+
+.title {
+  /* display: flexbox; */
+  text-align: center;
+  margin-bottom: auto;
+  font-size: smaller;
+  padding: auto;
+  color: antiquewhite;
+}
+
 /* The search field */
 #myInput1 {
-  box-sizing: border-box;
-  background-image: url("searchicon.png");
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
   padding: 14px 20px 12px 45px;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgb(170, 171, 184);
   position: right;
 }
 
@@ -19,25 +43,22 @@
 #searchbar-div {
   display: flex;
   justify-content: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 #myInput2 {
-  box-sizing: border-box;
-  background-image: url("searchicon.png");
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
   padding: 14px 20px 12px 45px;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgb(170, 171, 184);
   position: left;
 }
 
-
 #myInput2:focus {
-  outline: 3px solid #ddd;
-}    
+  outline: 3px solid rgb(170, 171, 184);
+}
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -48,9 +69,9 @@
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   /* position: absolute; */
-  background-color: #f6f6f6;
+  background-color: rgb(170, 171, 184);
   min-width: 230px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(170, 171, 184);
 }
 
 /* Links inside the dropdown */
@@ -63,7 +84,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content div:hover {
-  background-color: #f1f1f1;
+  background-color: rgb(170, 171, 184);
 }
 
 .show {
@@ -75,7 +96,7 @@
 .crypto-calculator-parent-container {
   display: flex;
   width: 100%;
-  background-color: aquamarine;
+  background-color: rgb(46, 156, 202);
   justify-content: center;
   position: relative;
 }
@@ -92,8 +113,27 @@
 .price-container {
   display: flex;
   align-items: center;
+  color: antiquewhite;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  align-content: space-between;
+  justify-content: space-evenly;
+  padding: 50px;
 }
 
 .calc-button {
   height: 20px;
+  width: 50%;
+  background-color: rgb(46, 156, 202);
+}
+
+.reset-button {
+  height: 20px;
+  background-color: rgb(46, 156, 202);
 }
