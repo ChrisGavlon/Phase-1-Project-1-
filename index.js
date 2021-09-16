@@ -1,5 +1,3 @@
-// const BASE_URL =
-//   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=500&page=1&sparkline=false";
 const BASE_URL = "http://localhost:3000/Crypto";
 const button = document.querySelector(".calc-button");
 let responseData;
@@ -17,14 +15,16 @@ fetch(BASE_URL)
 
     function renderCryptoDropDown(crytpoObj, dropDownID, inputID) {
       // create option or div element where data will go
+      // assign a div, class, and textContent
       const cryptoSearchCell = document.createElement("div");
-
-      // assign a div
+      cryptoSearchCell.className = `dropItem${dropDownID}`;
       cryptoSearchCell.textContent = crytpoObj.name;
 
+      //Method to pass string interpolation value into click event
       cryptoSearchCell.id = inputID;
       console.log(cryptoSearchCell.id);
 
+      //event listener for pasting desired result into search bar
       cryptoSearchCell.addEventListener("click", insertToSearchbar);
 
       const searchCellLocation = document.querySelector(
@@ -70,7 +70,6 @@ function onButtonPress() {
 }
 
 function calculateFunction(dataPrice, marketCap, circSupply) {
-  debugger;
   const displayPrice = document.querySelector(".calculated-price");
   let newPrice = marketCap / circSupply;
 
@@ -78,17 +77,16 @@ function calculateFunction(dataPrice, marketCap, circSupply) {
 }
 
 function filterFunction(numID) {
-  let input, filter, div, i;
+  let input, filter, i, div;
 
   input = document.querySelector(`#myInput${numID}`);
   filter = input.value.toUpperCase();
-  div = document.querySelector(`#myDropdown${numID}`);
-  div = document.getElementsByTagName("div");
+  div = document.querySelectorAll(`.dropItem${numID}`);
 
   for (i = 0; i < div.length; i++) {
     txtValue = div[i].textContent || div[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      div[i].style.display = "";
+    if (txtValue.toUpperCase().includes(filter)) {
+      div[i].style.display = "block";
     } else {
       div[i].style.display = "none";
     }
