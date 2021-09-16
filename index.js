@@ -74,7 +74,26 @@ function calculateFunction(dataPrice, marketCap, circSupply) {
   const displayPrice = document.querySelector(".calculated-price");
   let newPrice = marketCap / circSupply;
 
-  displayPrice.textContent = newPrice;
+  newPrice = Math.round(newPrice * 100) / 100;
+  displayPrice.textContent = `$${newPrice}`;
+}
+
+// event is triggered when Reset button is clicked
+
+resetBttn.addEventListener("click", resetAll);
+function resetAll() {
+  const input1 = document.querySelector("#myInput1");
+  input1.value = "";
+
+  const input2 = document.querySelector("#myInput2");
+  input2.value = "";
+
+  const header = document.querySelector(".calculated-price");
+  header.textContent = "Price will go here!";
+
+  const content = document.querySelector(".contentbox-header");
+  content.textContent = "Crypto A would have the price of...";
+  debugger;
 }
 
 function filterFunction(numID) {
