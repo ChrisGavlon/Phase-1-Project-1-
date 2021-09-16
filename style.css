@@ -23,6 +23,9 @@ body {
   padding: auto;
   color: antiquewhite;
 }
+.dropItem1 :hover {
+  visibility: hidden;
+}
 
 /* The search field */
 #myInput1 {
@@ -72,6 +75,10 @@ body {
   background-color: rgb(248, 248, 248);
   min-width: 230px;
   border: 1px solid black;
+}
+
+.dropItem1 :hover {
+  background: black;
 }
 
 /* Links inside the dropdown */

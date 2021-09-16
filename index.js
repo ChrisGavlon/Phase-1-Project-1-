@@ -37,6 +37,7 @@ fetch(BASE_URL)
       // append cryptoSearchCell to SearchCellLocation
 
       searchCellLocation.appendChild(cryptoSearchCell);
+
       // cryptoSearchCell.appendChild(imageSearchCell);
     }
   });
