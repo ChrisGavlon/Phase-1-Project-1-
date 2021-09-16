@@ -10,6 +10,15 @@
     "circulating_supply": 18816931
     },
     {
+      "id": "ethereum",
+      "symbol": "eth",
+      "name": "Ethereum",
+      "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+      "current_price": 3551.03,
+      "market_cap": 417246402863,
+      "circulating_supply": 117552407.874
+    },
+    {
     "id": "cardano",
     "symbol": "ada",
     "name": "Cardano",

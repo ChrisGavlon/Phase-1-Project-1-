@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000/Crypto";
 const button = document.querySelector(".calc-button")
+const resetBttn = document.querySelector(".reset-button")
 let responseData;
 fetch(BASE_URL)
   .then((resp) => {
@@ -42,12 +43,20 @@ fetch(BASE_URL)
 function insertToSearchbar(e) {
 const input = document.querySelector(`#myInput${e.target.id}`);
 input.value = this.outerText;
+debugger;
+
+if(input.id === 'myInput1'){
+const content = document.querySelector('.contentbox-header');
+content.textContent = `${input.value} would have the price of...`;
+const header = document.querySelector('.calculated-price')
+header.textContent = 'Price will go here!';
+}
 }
 
+//event is triggered when Calculate button is clicked
 button.addEventListener('click', onButtonPress)
 
 function onButtonPress(){
-  debugger;
   const inputOne = document.querySelector('#myInput1')
   const inputTwo = document.querySelector('#myInput2')
   let dataPriceA;
@@ -71,7 +80,26 @@ function calculateFunction(dataPrice,marketCap, circSupply){
   const displayPrice = document.querySelector('.calculated-price')
   let newPrice = marketCap / circSupply;
 
-  displayPrice.textContent = newPrice;
+  newPrice = Math.round(newPrice * 100) / 100;
+  displayPrice.textContent = `$${newPrice}`;
+}
+
+// event is triggered when Reset button is clicked
+
+resetBttn.addEventListener('click', resetAll)
+function resetAll(){
+  const input1 = document.querySelector('#myInput1')
+  input1.value = '';
+
+  const input2 = document.querySelector('#myInput2')
+  input2.value = '';
+
+  const header = document.querySelector('.calculated-price')
+  header.textContent = 'Price will go here!';
+
+  const content = document.querySelector('.contentbox-header');
+  content.textContent = 'Crypto A would have the price of...';
+  debugger;
 }
 
 function filterFunction(numID) {
