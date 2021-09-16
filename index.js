@@ -1,14 +1,15 @@
 // const BASE_URL =
 //   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=500&page=1&sparkline=false";
-
 const BASE_URL = "http://localhost:3000/Crypto";
-
+const button = document.querySelector(".calc-button")
+let responseData;
 fetch(BASE_URL)
   .then((resp) => {
     return resp.json();
   })
 
   .then(function (cryptoArray) {
+    responseData = cryptoArray;
     cryptoArray.forEach((crypto) => {
       renderCryptoDropDown(crypto, "1", "1");
       renderCryptoDropDown(crypto, "2", "2");
@@ -22,7 +23,6 @@ fetch(BASE_URL)
 
       cryptoSearchCell.id = inputID;
       console.log(cryptoSearchCell.id);
-      debugger;
 
       cryptoSearchCell.addEventListener("click", insertToSearchbar);
       
@@ -35,49 +35,44 @@ fetch(BASE_URL)
 
       searchCellLocation.appendChild(cryptoSearchCell);
       // cryptoSearchCell.appendChild(imageSearchCell);
-
-      // dataset variables for Marketcap, Price, and Total Supply
-
-      let dataPrice = document.querySelector(`#myInput${inputID}`);
-      dataPrice.dataset.price = crytpoObj.price;
     }
   });
-
-fetch(BASE_URL)
-  .then((resp) => {
-    return resp.json()
-  })
-  .then((cryptoArray)=>{cryptoArray.forEach((crypto) =>{
-      getInputValues(crypto, "1")
-      getInputValues(crypto, "2")
-    })
-  })
-
-  function getInputValues(cryptoObj, inputID){
-    let dataPrice = document.querySelector(`#myInput${inputID}`);
-    dataPrice.dataset.price = cryptoObj.price;
-
-    let marketCap = document.querySelector(`#myInput${inputID}`)
-    marketCap.dataset.mCap = cryptoObj.market_cap
-
-    let circSupply = document.querySelector(`#myInput${inputID}`)
-    circSupply.dataset.cSupply = cryptoObj.circulating_supply
-  }
 
 function insertToSearchbar(e) {
 const input = document.querySelector(`#myInput${e.target.id}`);
 input.value = this.outerText;
 }
 
-// const inputTOCalc1 = document.querySelector("#myInput1");
-// const inputTOCalc2 = document.querySelector("#myInput2");
+button.addEventListener('click', onButtonPress)
 
-// inputTOCalc1.addEventListener("change", function () {
-//   return console.log(inputTOCalc1.value);
-// });
-// inputTOCalc2.addEventListener("change", function () {
-//   return console.log(inputTOCalc2.value);
-// });
+function onButtonPress(){
+  debugger;
+  const inputOne = document.querySelector('#myInput1')
+  const inputTwo = document.querySelector('#myInput2')
+  let dataPriceA;
+  let circSupplyA;
+  let marketCapB;
+  responseData.forEach(cryptoObj =>{
+    if(inputOne.value === cryptoObj.name){
+      dataPriceA = cryptoObj.current_price
+      circSupplyA = cryptoObj.circulating_supply
+    }
+    if(inputTwo.value === cryptoObj.name){
+      marketCapB = cryptoObj.market_cap
+    }
+  });
+  if(marketCapB && dataPriceA && circSupplyA){
+      calculateFunction(dataPriceA, marketCapB, circSupplyA)
+    }
+}
+
+function calculateFunction(dataPrice,marketCap, circSupply){
+  debugger;
+  const displayPrice = document.querySelector('.calculated-price')
+  let newPrice = marketCap / circSupply;
+
+  displayPrice.textContent = newPrice;
+}
 
 function filterFunction(numID) {
   let input, filter, div, i;
