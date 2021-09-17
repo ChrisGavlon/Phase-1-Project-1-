@@ -17,15 +17,30 @@ body {
   height: 100%;
 }
 
-img {
+.nyancat {
   display: flexbox;
   height: 20%;
   width: 20%;
+  padding-left: 15px;
 }
 
-.searchbar-div {
-  display: flexbox;
-  gap: 10px;
+.img-cell {
+  height: 20px;
+  width: 20px;
+}
+
+.dropItem1 > .img-cell {
+  margin: auto;
+  float: right;
+}
+
+.dropItem2 > .img-cell {
+  margin: auto;
+  float: right;
+}
+
+#searchbar-div {
+  padding: 40px;
 }
 
 .title {
@@ -35,9 +50,14 @@ img {
   padding-top: 10px;
   margin-top: 0px;
   margin-bottom: 20px;
-  font-size: smaller;
+  font-size: large;
   font-weight: bolder;
-  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(151, 56, 214, 1) 0%,
+    rgba(32, 43, 37, 1) 17%
+  );
+
   color: white;
   height: 60px;
   width: 100%;
@@ -91,10 +111,7 @@ img {
   background-color: rgb(248, 248, 248);
   min-width: 230px;
   border: 1px solid black;
-}
-
-.dropItem1 :hover {
-  background: black;
+  display: inline;
 }
 
 /* Links inside the dropdown */
@@ -107,7 +124,7 @@ img {
 
 /* Change color of dropdown links on hover */
 .dropdown-content div:hover {
-  background-color: rgb(170, 171, 184);
+  background: #2dfd86;
 }
 
 .show {
@@ -119,12 +136,14 @@ img {
 .crypto-calculator-parent-container {
   display: flex;
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   background: linear-gradient(128.17deg, #bd00ff -14.78%, #ff1f8a 110.05%);
   color: white;
-  justify-content: center;
+  justify-content: stretch;
+  align-items: center;
   position: relative;
   flex-direction: row;
+  padding-left: 60px;
 }
 
 .crypto-calculator-box {
@@ -154,6 +173,8 @@ img {
   align-items: flex-start;
   gap: 10px;
   padding: 50px;
+  margin-top: -45px;
+  margin-left: -40px;
 }
 
 .calc-button {

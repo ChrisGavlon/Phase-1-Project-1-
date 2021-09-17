@@ -31,14 +31,14 @@ fetch(BASE_URL)
         `#myDropDown${dropDownID}`
       );
 
-      // const imageSearchCell = document.createElement("img");
-      // imageSearchCell.src = crytpoObj.image;
+      const imageSearchCell = document.createElement("img");
+      imageSearchCell.src = crytpoObj.image;
+      imageSearchCell.classList = "img-cell";
 
       // append cryptoSearchCell to SearchCellLocation
 
       searchCellLocation.appendChild(cryptoSearchCell);
-
-      // cryptoSearchCell.appendChild(imageSearchCell);
+      cryptoSearchCell.appendChild(imageSearchCell);
     }
   });
 
@@ -57,7 +57,6 @@ function insertToSearchbar(e) {
 button.addEventListener("click", onButtonPress);
 
 function onButtonPress() {
-  debugger;
   const inputOne = document.querySelector("#myInput1");
   const inputTwo = document.querySelector("#myInput2");
   let dataPriceA;
@@ -100,7 +99,6 @@ function resetAll() {
 
   const content = document.querySelector(".contentbox-header");
   content.textContent = "Crypto A would have the price of...";
-  debugger;
 }
 
 function filterFunction(numID) {
