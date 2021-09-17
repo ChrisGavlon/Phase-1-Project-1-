@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000/Crypto";
 const button = document.querySelector(".calc-button");
+const resetBttn = document.querySelector(".reset-button");
 let responseData;
 fetch(BASE_URL)
   .then((resp) => {
@@ -22,7 +23,6 @@ fetch(BASE_URL)
 
       //Method to pass string interpolation value into click event
       cryptoSearchCell.id = inputID;
-      console.log(cryptoSearchCell.id);
 
       //event listener for pasting desired result into search bar
       cryptoSearchCell.addEventListener("click", insertToSearchbar);
@@ -45,6 +45,13 @@ fetch(BASE_URL)
 function insertToSearchbar(e) {
   const input = document.querySelector(`#myInput${e.target.id}`);
   input.value = this.outerText;
+
+  if (input.id === "myInput1") {
+    const content = document.querySelector(".contentbox-header");
+    content.textContent = `${input.value} would have the price of...`;
+    const header = document.querySelector(".calculated-price");
+    header.textContent = "Price will go here!";
+  }
 }
 
 button.addEventListener("click", onButtonPress);
